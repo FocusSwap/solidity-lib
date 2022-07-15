@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-pragma solidity >=0.6.0;
+pragma solidity >=0.8.0;
 
 import '../libraries/TransferHelper.sol';
 
@@ -103,6 +103,6 @@ contract TransferHelperTestFakeFallback {
     }
 
     function withdraw() external {
-        msg.sender.transfer(address(this).balance);
+        payable(msg.sender).transfer(payable(address(this)).balance);
     }
 }
